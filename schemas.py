@@ -17,7 +17,7 @@ class Student(CreateAndUpdateStudent):
         orm_mode = True
 
 class CreateAndUpdateGazeInfo(BaseModel):
-    Timestamp : int
+    Timestamp : str
     GazeLeftx : float
     GazeLefty : float
     GazeRightx : float

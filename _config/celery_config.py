@@ -19,7 +19,7 @@ class BaseConfig:
         # default queue
         Queue("celery"),
         # custom queue
-        Queue("gaze_info"),
+        Queue("gaze_infos"),
     )
 
     CELERY_TASK_ROUTES = (route_task,)
