@@ -15,7 +15,7 @@ services:
       - mynetwork
 
   rabbitmq:
-    image: rabbitmq:3.9
+    image: rabbitmq:3.9-management
     restart: always
     ports:
       - "5672:5672"
