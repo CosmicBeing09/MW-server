@@ -21,6 +21,9 @@ class StudnetInfo(Base):
     useGlass = Column(Boolean)
     displayWidth = Column(Integer)
     displayHeight = Column(Integer)
+    age = Column(Integer)
+    education = Column(String(50))
+    accuracy = Column(Float)
 
 class GazeInfo(Base):
     __tablename__ = "gaze_info"
@@ -28,6 +31,8 @@ class GazeInfo(Base):
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("student.id"))
     Timestamp = Column(String(15))
+    GazeX = Column(Float)
+    GazeY = Column(Float)
     GazeLeftx = Column(Float)
     GazeLefty = Column(Float)
     GazeRightx = Column(Float)
@@ -38,6 +43,7 @@ class GazeInfo(Base):
     SaccadeSeq = Column(Float)
     Blink = Column(Float)
     GazeAOI = Column(Float)
+    isMindWandered = Column(Boolean)
     batchNo = Column(Integer)
 
 class GazeInfoDerived(Base):

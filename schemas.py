@@ -9,6 +9,9 @@ class CreateAndUpdateStudent(BaseModel):
     useGlass : bool
     displayWidth : int
     displayHeight : int
+    age : int
+    education : str
+    accuracy : float
 
 class Student(CreateAndUpdateStudent):
     id : int
@@ -18,6 +21,8 @@ class Student(CreateAndUpdateStudent):
 
 class CreateAndUpdateGazeInfo(BaseModel):
     Timestamp : str
+    GazeX : float
+    GazeY : float
     GazeLeftx : float
     GazeLefty : float
     GazeRightx : float
@@ -29,6 +34,7 @@ class CreateAndUpdateGazeInfo(BaseModel):
     Blink : float
     GazeAOI : float
     student_id : int
+    isMindWandered : bool
     batchNo : int
 
 
