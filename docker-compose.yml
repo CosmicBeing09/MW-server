@@ -10,6 +10,8 @@ services:
       MYSQL_DATABASE: mw_db
     ports:
       - "3306:3306"
+    volumes:
+      - db_volume:/path/to/mount/point
     networks:
       - mynetwork
 
@@ -61,3 +63,7 @@ services:
 
 networks:
   mynetwork:
+
+volumes:
+  db_volume:
+    external: true
