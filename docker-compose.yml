@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${ENV_MY_SQL_PASS}
       MYSQL_DATABASE: mw_db
+    ports:
+      - "3306:3306"
     networks:
       - mynetwork
 
