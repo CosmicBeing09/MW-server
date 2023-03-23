@@ -12,8 +12,6 @@ from database import get_db
              name='gaze_infos:create_gaze_info_tasks')
 def create_gaze_info_tasks(self, gaze_info: List[CreateAndUpdateGazeInfo] , session : Session = next(get_db())) -> str:
     for tempData in gaze_info:
-        # print(tempData.dict())
         gaze_data = create_gaze_info(session, tempData)
-        # print(str(gaze_data))
-    session.commit()
-    return "return-task"
+    # session.commit()
+    return "task executed in db"

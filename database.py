@@ -5,7 +5,7 @@ from config import DB_URL
 
 DATABASE_URL = DB_URL
 
-db_engine = create_engine(DATABASE_URL, echo = False)
+db_engine = create_engine(DATABASE_URL, echo = False,  pool_pre_ping=True)
 SessionLocal = sessionmaker(bind=db_engine)
 
 Base = declarative_base()

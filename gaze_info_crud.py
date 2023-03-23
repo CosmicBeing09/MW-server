@@ -10,17 +10,12 @@ from database import get_db
 def create_gaze_info(session : Session ,gaze_info: CreateAndUpdateGazeInfo) -> str:
     try:
         new_gaze_info = GazeInfo(**gaze_info.dict())
-        print("aashche dada")
-        print(new_gaze_info.__dict__)
         session.add(new_gaze_info)
-        # session.commit()
-        # session.refresh(new_gaze_info)
-        print(gaze_info)
+        session.commit()
     except Exception as e:
         print(e)
-    # print(new_gaze_info)
     
-    return "Created create crud info"
+    return "Gaze Info Created"
 
 
 def get_gaze_infos(session: Session, limit: int, offset: int) -> List[GazeInfo]:
