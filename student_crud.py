@@ -1,8 +1,8 @@
 from typing import List
 from sqlalchemy.orm import Session
 from exceptions import StudentInfoNotFoundError, StudentInfoInfoAlreadyExistError
-from models import StudnetInfo
-from schemas import CreateAndUpdateStudent
+from models import StudnetInfo, ClassTimestampRecord
+from schemas import CreateAndUpdateStudent, ClassTimestampSingleRecord
 
 def get_all_student(session: Session, limit: int, offset: int) -> List[StudnetInfo]:
     return session.query(StudnetInfo).offset(offset).limit(limit).all()
@@ -35,3 +35,15 @@ def create_student(session: Session, student_info: CreateAndUpdateStudent) -> St
     session.commit()
     session.refresh(new_Student_info)
     return new_Student_info
+
+
+def add_class_record(session: Session, class_time_stamp: ClassTimestampSingleRecord) -> ClassTimestampRecord:
+    try:
+        single_class_record = ClassTimestampRecord(**class_time_stamp.dict())
+        session.add(single_class_record)
+        session.commit()
+        session.refresh(single_class_record)
+        return single_class_record
+    except Exception:
+        print_exception(e)
+        return NULL

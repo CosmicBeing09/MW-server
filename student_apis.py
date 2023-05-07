@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_utils.cbv import cbv
 from sqlalchemy.orm import Session
-from student_crud import get_all_student, get_student_info_by_id, create_student, get_student_info_by_email
+from student_crud import get_all_student, get_student_info_by_id, create_student, get_student_info_by_email, add_class_record
 from database import get_db
 from exceptions import InfoException
-from schemas import Student, CreateAndUpdateStudent, PaginatedStudentInfo
+from schemas import Student, CreateAndUpdateStudent, PaginatedStudentInfo, ClassTimestampRecord, ClassTimestampSingleRecord
 
 
 router = APIRouter()
@@ -45,3 +45,11 @@ class Student:
             return student_info
         except InfoException as cie:
             raise HTTPException(**cie.__dict__)
+
+    @router.post("/teacher/addRecord")
+    def add_class_record_to_db(self, classRecord: ClassTimestampSingleRecord):
+        added_record = add_class_record(self.session, classRecord)
+        if added_record == NULL:
+            return Response("Internal server error", status_code=500)
+        else:
+            return added_record
