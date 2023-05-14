@@ -70,4 +70,11 @@ class GazeInfoDerived(Base):
     second_pass_duration = Column(Integer)
     batchNo = Column(Integer)
 
+class ClassTimestampRecord(Base):
+    __tablename__ = "class_timestamp_record"
+
+    id = Column(Integer, primary_key=True, index=True)
+    Timestamp = Column(String(15))
+    Text = Column(String(20))
+
 Base.metadata.create_all(db_engine)

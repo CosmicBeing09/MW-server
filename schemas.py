@@ -37,7 +37,6 @@ class CreateAndUpdateGazeInfo(BaseModel):
     isMindWandered : bool
     batchNo : int
 
-
 class GazeInfo(CreateAndUpdateGazeInfo):
     id : int
 
@@ -80,6 +79,16 @@ class CreateAndUpdateGazeInfoDerived(BaseModel):
 
 class GazeInfoDerived(CreateAndUpdateGazeInfoDerived):
     id : int
+
+    class Config:
+        orm_mode = True
+
+class ClassTimestampSingleRecord(BaseModel):
+    Timestamp: str
+    Text: str
+
+class ClassTimestampRecord(ClassTimestampSingleRecord):
+    id: int
 
     class Config:
         orm_mode = True
