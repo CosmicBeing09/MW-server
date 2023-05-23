@@ -44,6 +44,6 @@ def add_class_record(session: Session, class_time_stamp: ClassTimestampSingleRec
         session.commit()
         session.refresh(single_class_record)
         return single_class_record
-    except Exception:
-        print_exception(e)
-        return NULL
+    except Exception as ex:
+        print(ex)
+        return None

@@ -49,7 +49,6 @@ class Student:
     @router.post("/teacher/addRecord")
     def add_class_record_to_db(self, classRecord: ClassTimestampSingleRecord):
         added_record = add_class_record(self.session, classRecord)
-        if added_record == NULL:
-            return Response("Internal server error", status_code=500)
-        else:
-            return added_record
+        if added_record == None:
+            raise HTTPException(500, "Could not add record")
+        return add_class_record
