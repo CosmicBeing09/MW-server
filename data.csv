@@ -1,3 +1,4 @@
+id,student_id,Timestamp,GazeX,GazeY,GazeLeftx,GazeLefty,GazeRightx,GazeRighty,PupilLeft,PupilRight,FixationSeq,SaccadeSeq,Blink,GazeAOI,isMindWandered,batchNo
 1,1,1684952727979,500.572,500.126,500.239,500.28,500.239,500.28,0.0,0.0,-1.0,-1.0,0.0,-1.0,False,1
 2,1,1684952728015,500.936,503.087,500.332,501.614,500.905,503.087,11.0,5.0,-1.0,-1.0,0.0,-1.0,False,1
 3,1,1684952728048,507.054,512.121,504.524,513.814,503.505,512.449,7.0,2.0,-1.0,-1.0,0.0,-1.0,False,1

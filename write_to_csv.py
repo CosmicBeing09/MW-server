@@ -45,6 +45,7 @@ def main():
                       'PupilLeft', 'PupilRight', 'FixationSeq', 'SaccadeSeq',
                       'Blink', 'GazeAOI', 'isMindWandered', 'batchNo']
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        csv_writer.writeheader()
 
         for student in students:
             query = db.query(GazeInfo).order_by(GazeInfo.Timestamp).filter(
